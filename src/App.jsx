@@ -4,7 +4,6 @@ async function getDistance(sourceZip, destZip) {
   const res = await fetch(`https://distancefindapi.onrender.com/api/distance?origins=${sourceZip}&destinations=${destZip}`);
   const data = await res.json();
 
-
   if (data.status !== "OK" || data.rows[0].elements[0].status !== "OK") {
     throw new Error(`No route found from ${sourceZip} to ${destZip}`);
   }
